@@ -2,27 +2,27 @@ import React, { useEffect, useState, useReducer } from "react";
 import PropTypes from "prop-types";
 
 /* Controller */
-import { search } from "./../../server/controllers/products";
+import { search } from "../../server/controllers/products";
 
 /* Bootstrap */
 import { Row, Col } from "react-bootstrap";
 
 /* Currency Helper */
-import { formatAsCurrency } from "./../../server/utils/helpers";
+import { formatAsCurrency } from "../../server/utils/helpers";
 
 /* Routing */
 import { Link } from "react-router-dom";
 
 /* Personal components */
-import Breadcrumb from "./../Breadcrumb";
-import Message from "./../Message";
+import Breadcrumb from "../Components/Breadcrumb";
+import Message from "../Components/Message";
 
 /* Loading */
-import Loading from "./../Loading";
+import Loading from "../Components/Loading";
 
 /* Reducer products  */
-import { productsReducer, initialState } from "./../../reducers/products";
-import { FETCH_SUCCESS, FETCH_ERROR } from "./../../reducers/actions/products";
+import { productsReducer, initialState } from "../../reducers/products";
+import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/products";
 const Products = ({ searchItem }) => {
   const [{ products, error, loading }, dispatch] = useReducer(
     productsReducer,

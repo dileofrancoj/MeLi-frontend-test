@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { Row, Col, Button } from "react-bootstrap";
-import { searchById } from "./../../server/controllers/products";
-import { formatAsCurrency } from "./../../server/utils/helpers";
+import { searchById } from "../../server/controllers/products";
+import { formatAsCurrency } from "../../server/utils/helpers";
 import { useParams } from "react-router-dom";
 
-import { productReducer, initialState } from "./../../reducers/product";
-import { FETCH_SUCCESS, FETCH_ERROR } from "./../../reducers/actions/product";
+import { productReducer, initialState } from "../../reducers/product";
+import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/product";
 
-import Loading from "./../Loading";
-import Breadcrumb from "./../Breadcrumb";
+import Loading from "../Components/Loading";
+import Breadcrumb from "../Components/Breadcrumb";
 const Product = () => {
   const { id } = useParams();
 

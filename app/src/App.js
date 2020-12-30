@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Products from "./Pages/Products";
 import Product from "./Pages/Product";
 import { Container } from "react-bootstrap";
-import Header from "./Header";
+import Header from "./Components/Header";
 
 export default function App() {
   const [searchItem, setSearchItem] = useState("");

@@ -5,7 +5,12 @@
 
 ## Comenzando
 
-Una vez clonado el proyecto, posicionate en la carpeta del mismo y ejecuta la terminal.
+```bash
+git clone https://github.com/dileofrancoj/MeLi-frontend-test
+
+cd [proyecto]
+```
+
 <br>
 Una vez en la terminal, corre el comando:
 

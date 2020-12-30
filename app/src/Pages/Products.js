@@ -58,7 +58,6 @@ const Products = ({ searchItem }) => {
                     <Col md={3} className="thumbnail">
                       <Link to={`/product/${id}`}>
                         <picture>
-                          {/* Formatos */}
                           <img
                             className="pointer rounded thumbnail"
                             src={picture}
@@ -103,7 +102,6 @@ const Products = ({ searchItem }) => {
 
   return (
     <React.Fragment>
-      {/* Se muestra si hay productos y loading = false */}
       {loading ? <Loading /> : null}
       {!!products.length ? (
         <RenderProducts />

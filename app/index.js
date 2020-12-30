@@ -6,7 +6,7 @@ import App from "./src/App";
 
 render(
   <Router>
-    <App data={window.__PRELOADED_STATE__} />
+    <App />
   </Router>,
   document.getElementById("root")
 );

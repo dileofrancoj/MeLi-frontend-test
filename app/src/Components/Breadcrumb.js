@@ -1,15 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 const iterateCategories = (categories) => {
   return categories.map((cat, i) => (
-    <Link to="" key={i}>
+    <span key={i}>
       <React.Fragment>
         {cat} {i < categories.length - 1 ? " > " : ""}
       </React.Fragment>
-    </Link>
+    </span>
   ));
 };
 

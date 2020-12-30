@@ -6,7 +6,7 @@ import Loader from "react-loader-spinner";
 const Loading = () => {
   return (
     <Row className="justify-content-center">
-      <Col style={{ textAlign: "center" }}>
+      <Col className="text-center">
         <Loader
           type="ThreeDots"
           color="black"

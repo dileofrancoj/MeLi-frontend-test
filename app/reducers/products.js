@@ -9,7 +9,7 @@ export const initialState = {
   products: [],
 };
 
-export const productsReducer = (state, action) => {
+export function productsReducer(state, action) {
   switch (action.type) {
     case FETCHING:
       return {
@@ -34,4 +34,4 @@ export const productsReducer = (state, action) => {
         state,
       };
   }
-};
+}

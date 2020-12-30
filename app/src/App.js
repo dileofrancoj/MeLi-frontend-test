@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Products from "./Pages/Products";
 import Product from "./Pages/Product";
@@ -20,6 +20,7 @@ export default function App() {
             <Products searchItem={searchItem} />
           </Route>
           <Route path="/product/:id" exact component={Product} />
+          <Redirect to="/products" />
         </Switch>
       </Container>
     </React.Fragment>

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb should render Breadcrumb component  1`] = `
+<[object Object]
+  className="mt-16 mb-16"
+  noGutters={false}
+>
+  <[object Object]
+    md={12}
+  >
+    <span />
+  </[object Object]>
+</[object Object]>
+`;

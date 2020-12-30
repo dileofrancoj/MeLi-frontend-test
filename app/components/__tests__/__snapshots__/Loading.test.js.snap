@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should render Loading component  1`] = `
+<[object Object]
+  className="justify-content-center"
+  noGutters={false}
+>
+  <[object Object]
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <Loader
+      className=""
+      color="black"
+      height={100}
+      style={Object {}}
+      timeout={5000}
+      type="ThreeDots"
+      visible={true}
+      width={100}
+    />
+  </[object Object]>
+</[object Object]>
+`;

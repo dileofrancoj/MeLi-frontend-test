@@ -36,6 +36,7 @@ const Header = ({ handleSearch }) => {
                   name="search"
                   className="input-search form-control"
                   placeholder="Nunca dejes de buscar"
+                  id="search"
                 />
 
                 <Button type="submit" className="btn-search">

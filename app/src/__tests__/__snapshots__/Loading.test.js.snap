@@ -6,11 +6,7 @@ exports[`Loading should render Loading component  1`] = `
   noGutters={false}
 >
   <[object Object]
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
+    className="text-center"
   >
     <Loader
       className=""

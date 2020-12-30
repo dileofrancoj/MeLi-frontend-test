@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Loader from "react-loader-spinner";
-import Loading from "./../Loading";
+import Loading from "./../Components/Loading";
 
 describe("Loading", () => {
   test("should render Loading component ", () => {

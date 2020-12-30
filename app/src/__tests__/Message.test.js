@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { StaticRouter } from "react-router-dom";
 
-import Message from "./../Message";
+import Message from "./../Components/Message";
 
 describe("Message", () => {
   test("should render Message component ", () => {

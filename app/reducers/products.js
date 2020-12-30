@@ -2,7 +2,7 @@ import {
   FETCH_ERROR,
   FETCH_SUCCESS,
   FETCHING,
-} from "./../reducers/actions/products";
+} from "./../reducers/actions/common";
 export const initialState = {
   loading: false,
   error: false,

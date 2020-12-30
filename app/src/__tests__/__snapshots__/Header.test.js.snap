@@ -1,28 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render Header component 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
-  staticContext={Object {}}
+<header
+  className="app-header"
 >
-  <Header />
-</Router>
+  <[object Object]
+    className="align-items-center searchBox m-0"
+    noGutters={false}
+    style={
+      Object {
+        "textAlign": "right",
+      }
+    }
+  >
+    <[object Object]
+      md={4}
+      style={
+        Object {
+          "height": "40px",
+        }
+      }
+    >
+      <[object Object]
+        to="/products"
+      >
+        <img
+          alt="logo"
+          src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/Logo_ML.png"
+        />
+      </[object Object]>
+    </[object Object]>
+    <[object Object]
+      md={4}
+      style={
+        Object {
+          "height": "40px",
+        }
+      }
+    >
+      <[object Object]
+        inline={false}
+        onSubmit={[Function]}
+      >
+        <[object Object]
+          controlId="formBasicEmail"
+        >
+          <[object Object]>
+            <input
+              className="input-search form-control"
+              id="search"
+              name="search"
+              placeholder="Nunca dejes de buscar"
+            />
+            <[object Object]
+              active={false}
+              className="btn-search"
+              disabled={false}
+              type="submit"
+              variant="primary"
+            >
+              <img
+                alt="search icon"
+                src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/ic_Search.png"
+              />
+            </[object Object]>
+          </[object Object]>
+        </[object Object]>
+      </[object Object]>
+    </[object Object]>
+  </[object Object]>
+</header>
 `;

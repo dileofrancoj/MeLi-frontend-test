@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { StaticRouter } from "react-router-dom";
-
 import App from "../App";
 
 describe("App", () => {

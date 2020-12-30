@@ -22,7 +22,7 @@ import Loading from "../Components/Loading";
 
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
-import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/products";
+import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
 const Products = ({ searchItem }) => {
   const [{ products, error, loading }, dispatch] = useReducer(
     productsReducer,

@@ -9,6 +9,7 @@ const sendProducts = (_products) =>
       condition,
       shipping,
       address,
+      categories,
     }) => {
       return {
         id,

@@ -24,16 +24,14 @@ import Loading from "../Components/Loading";
 import { productsReducer, initialState } from "../../reducers/products";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
 const Products = ({ searchItem }) => {
-  const [{ products, error, loading }, dispatch] = useReducer(
+  const [{ products, error, loading, categories }, dispatch] = useReducer(
     productsReducer,
     initialState
   );
-  const [categories, setCategories] = useState([]);
   const fetchData = async () => {
     try {
       const { items, categories } = await search(searchItem);
-      setCategories(categories);
-      dispatch({ type: FETCH_SUCCESS, payload: items });
+      dispatch({ type: FETCH_SUCCESS, payload: { items, categories } });
     } catch (e) {
       dispatch({ type: FETCH_ERROR, payload: items });
     }

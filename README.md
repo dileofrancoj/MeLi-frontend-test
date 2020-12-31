@@ -45,6 +45,8 @@ yarn test
 <p>Jest</p>
 <p>Enzyme🦠</p>
 <p>Babel</p>
+<p>React Router DOM </p>
+<p>Helmet ⛑</p>
 
 ## Agradecimientos
 

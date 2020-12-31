@@ -3,7 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { searchById } from "../../server/controllers/products";
 import { formatAsCurrency } from "../../server/utils/helpers";
 import { useParams } from "react-router-dom";
-
+import Helmet from "react-helmet";
 /* Personal components */
 import Loading from "../Components/Loading";
 import Breadcrumb from "../Components/Breadcrumb";
@@ -34,6 +34,10 @@ const Product = () => {
   const RenderProduct = () => {
     return (
       <React.Fragment>
+        <Helmet>
+          <title>{product.title}</title>
+          <meta name="description" content={product.description} />
+        </Helmet>
         <Breadcrumb categories={product.categories} />
         <section className="vh-75 bg-white ">
           <Row className="justify-content-center pt-32 bg-white m-0">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useReducer } from "react";
 import PropTypes from "prop-types";
-
+import Helmet from "react-helmet";
 /* Controller */
 import { search } from "../../server/controllers/products";
 
@@ -43,6 +43,10 @@ const Products = ({ searchItem }) => {
   const RenderProducts = () => {
     return (
       <React.Fragment>
+        <Helmet>
+          <title>Productos</title>
+          <meta name="description" content="Encontra todo lo que buscas" />
+        </Helmet>
         <Breadcrumb categories={categories} />
         <section>
           {products.map(

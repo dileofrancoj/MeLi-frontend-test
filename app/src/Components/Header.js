@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -8,10 +8,13 @@ const heightCol = {
 
 /* Search function */
 const Header = ({ handleSearch }) => {
+  const [product, setProduct] = useState("");
+
   const search = (e) => {
     const [{ value }] = e.target;
     e.preventDefault();
-    handleSearch(value);
+    // prevenir busqueda vacíos
+    if (value.trim() !== "") handleSearch(value);
   };
 
   return (

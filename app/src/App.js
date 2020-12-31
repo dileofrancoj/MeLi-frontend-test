@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import Products from "./Pages/Products";
 import Product from "./Pages/Product";
+import Home from "./Pages/Home";
 import { Container } from "react-bootstrap";
 import Header from "./Components/Header";
 
@@ -16,11 +17,12 @@ export default function App() {
       <Header handleSearch={handleSearch} />
       <Container>
         <Switch>
-          <Route path="/products" exact>
+          <Route path="/" exact component={Home} />
+          <Route path="/items" exact>
             <Products searchItem={searchItem} />
           </Route>
-          <Route path="/product/:id" exact component={Product} />
-          <Redirect to="/products" />
+          <Route path="/items/:id" exact component={Product} />
+          <Redirect to="/" />
         </Switch>
       </Container>
     </React.Fragment>

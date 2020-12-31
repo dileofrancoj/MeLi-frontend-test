@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
+import { useHistory } from "react-router-dom";
+
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 /* Controller */
@@ -59,7 +61,7 @@ const Products = ({ searchItem }) => {
                 <Col md={9}>
                   <Row>
                     <Col md={3} className="thumbnail">
-                      <Link to={`/product/${id}`}>
+                      <Link to={`/items/${id}`}>
                         <picture>
                           <img
                             className="pointer rounded thumbnail"
@@ -81,7 +83,7 @@ const Products = ({ searchItem }) => {
                       </h4>
 
                       <Link
-                        to={`/product/${id}`}
+                        to={`/items/${id}`}
                         style={{
                           color: "black",
                           textDecoration: "inherit",
@@ -106,11 +108,7 @@ const Products = ({ searchItem }) => {
   return (
     <React.Fragment>
       {loading ? <Loading /> : null}
-      {!!products.length ? (
-        <RenderProducts />
-      ) : (
-        <Message message={"Buscar productos ..."} />
-      )}
+      {!!products.length ? <RenderProducts /> : null}
       {error ? <h3>Ocurrió un error, intente de nuevo</h3> : null}
     </React.Fragment>
   );

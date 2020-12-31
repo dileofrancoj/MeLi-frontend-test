@@ -1,13 +1,12 @@
 const routes = [
   {
-    path: "/products",
-    title: "Productos",
-    description: "Descripcion de página",
+    path: "/",
   },
   {
-    path: "/product/:id",
-    title: "Producto",
-    description: "Descripcion de página",
+    path: "/items",
+  },
+  {
+    path: "/items/:id",
   },
 ];
 

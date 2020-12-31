@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const heightCol = {
@@ -8,13 +9,16 @@ const heightCol = {
 
 /* Search function */
 const Header = ({ handleSearch }) => {
-  const [product, setProduct] = useState("");
-
+  const history = useHistory();
+  console.log(history);
   const search = (e) => {
     const [{ value }] = e.target;
     e.preventDefault();
     // prevenir busqueda vacíos
-    if (value.trim() !== "") handleSearch(value);
+    if (value.trim() !== "") {
+      handleSearch(value);
+      history.push(`/items?search=${value}`);
+    }
   };
 
   return (
@@ -24,12 +28,11 @@ const Header = ({ handleSearch }) => {
         style={{ textAlign: "right" }}
       >
         <Col md={4} style={heightCol}>
-          <Link to="/products">
-            <img
-              alt="logo"
-              src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/Logo_ML.png"
-            />
-          </Link>
+          <img
+            alt="logo"
+            src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/Logo_ML.png"
+            onClick={() => history.goBack()}
+          />
         </Col>
         <Col md={4} style={heightCol}>
           <Form onSubmit={search}>

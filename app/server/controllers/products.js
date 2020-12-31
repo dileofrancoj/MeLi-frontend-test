@@ -2,6 +2,8 @@
 import { Products } from "../models/products";
 import { Categories } from "./../models/categories";
 
+import { NAME, LASTNAME } from "./../utils/constants";
+
 /* Modelo de Author */
 import { Author } from "./../models/author";
 
@@ -11,7 +13,7 @@ const { filterToCategories } = require("../services/categories");
 /* Generate sign of products and product */
 const { sendProducts, sendProduct } = require("../services/products");
 
-const { info: author } = new Author("franco", "di leo");
+const { info: author } = new Author(NAME, LASTNAME);
 const products = new Products();
 class Search {
   // get 4 products by name

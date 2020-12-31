@@ -2,7 +2,7 @@ import React, { useEffect, useState, useReducer } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 /* Controller */
-import { search } from "../../server/controllers/products";
+import { Search } from "../../server/controllers/products";
 
 /* Bootstrap */
 import { Row, Col } from "react-bootstrap";
@@ -30,7 +30,8 @@ const Products = ({ searchItem }) => {
   );
   const fetchData = async () => {
     try {
-      const { items, categories } = await search(searchItem);
+      const search = new Search();
+      const { items, categories } = await search.products(searchItem);
       dispatch({ type: FETCH_SUCCESS, payload: { items, categories } });
     } catch (e) {
       dispatch({ type: FETCH_ERROR, payload: items });

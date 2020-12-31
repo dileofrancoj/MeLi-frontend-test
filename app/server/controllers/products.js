@@ -1,41 +1,55 @@
-const { list, single, singleDescription } = require("../models/products");
+/* Import models */
+import { Products } from "../models/products";
 import { single as singleCat } from "./../models/categories";
-const {
-  filterToCategories,
-  categoriesSingle,
-} = require("../services/categories");
+
+/* Modelo de Author */
+import { Author } from "./../models/author";
+
+/* Generate sign of Categories */
+const { filterToCategories } = require("../services/categories");
+
+/* Generate sign of products and product */
 const { sendProducts, sendProduct } = require("../services/products");
 
-const author = {
-  name: "Franco",
-  lastname: "Di Leo",
-};
-
-const searchById = async (id) => {
-  try {
-    const product = await single(id);
-    const { category_id } = product;
-    const { path_from_root } = await singleCat(category_id);
-
-    const categories = filterToCategories(path_from_root);
-    const { plain_text: description } = await singleDescription(id);
-    const obj = { product, description, categories };
-    const item = sendProduct(obj);
-    return item;
-  } catch (e) {
-    console.error(e);
+const { info: author } = new Author("franco", "di leo");
+const products = new Products();
+class Search {
+  // get 4 products by name
+  async products(name) {
+    try {
+      const { results, filters } = await products.list(name);
+      const items = sendProducts(results);
+      const categories = filterToCategories(filters);
+      return { author, items, categories };
+    } catch (e) {
+      console.error(e);
+    }
   }
-};
 
-const search = async (product) => {
-  try {
-    const { results, filters } = await list(product);
-    const items = sendProducts(results);
-    const categories = filterToCategories(filters);
-    return { author, items, categories };
-  } catch (e) {
-    console.error(e);
+  // get single product by id
+  async product(id) {
+    try {
+      const product = await products.single(id);
+      const { category_id } = product;
+      const categories = await this.productCategory(category_id);
+      const { plain_text: description } = await products.singleDescription(id);
+      const obj = { product, description, categories };
+      const item = sendProduct(obj);
+      return item;
+    } catch (e) {
+      console.error(e);
+    }
   }
-};
 
-module.exports = { search, searchById };
+  // private
+  async productCategory(category_id) {
+    try {
+      const { path_from_root } = await singleCat(category_id);
+      return filterToCategories(path_from_root);
+    } catch (e) {
+      throw e;
+    }
+  }
+}
+
+module.exports = { Search };

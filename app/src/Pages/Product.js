@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { Row, Col, Button } from "react-bootstrap";
-import { searchById } from "../../server/controllers/products";
+import { Search } from "../../server/controllers/products";
 import { formatAsCurrency } from "../../server/utils/helpers";
 import { useParams } from "react-router-dom";
 import Helmet from "react-helmet";
@@ -19,7 +19,8 @@ const Product = () => {
   );
   const getProduct = async (id) => {
     try {
-      const data = await searchById(id);
+      const search = new Search();
+      const data = await search.product(id);
       dispatch({ type: FETCH_SUCCESS, payload: data });
       //setProduct(data);
     } catch (e) {

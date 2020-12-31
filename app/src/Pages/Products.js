@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer } from "react";
-import { useHistory } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
@@ -17,7 +16,6 @@ import { Link } from "react-router-dom";
 
 /* Personal components */
 import Breadcrumb from "../Components/Breadcrumb";
-import Message from "../Components/Message";
 
 /* Loading */
 import Loading from "../Components/Loading";

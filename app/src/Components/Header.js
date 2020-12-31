@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const heightCol = {
   height: "40px",
@@ -10,7 +9,8 @@ const heightCol = {
 /* Search function */
 const Header = ({ handleSearch }) => {
   const history = useHistory();
-  console.log(history);
+  const location = useLocation();
+  const [_, product] = location.search.split("=");
   const search = (e) => {
     const [{ value }] = e.target;
     e.preventDefault();
@@ -20,6 +20,10 @@ const Header = ({ handleSearch }) => {
       history.push(`/items?search=${value}`);
     }
   };
+
+  useEffect(() => {
+    product ? handleSearch(product) : null;
+  }, [product]);
 
   return (
     <header className="app-header">
@@ -40,7 +44,7 @@ const Header = ({ handleSearch }) => {
               <InputGroup>
                 <input
                   name="search"
-                  className="input-search form-control"
+                  className="input-search form-control f-18"
                   placeholder="Nunca dejes de buscar"
                   id="search"
                 />

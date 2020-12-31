@@ -1,15 +1,16 @@
 import request from "supertest";
 
 import router from "../router";
-import app from "../app";
+import App from "../app";
 
 jest.mock("../router", () => {
-  return jest.fn((req, res, next) => res.send());
+  return jest.fn((_, res, __) => res.send());
 });
 
 describe("app", () => {
-  test("app.js", () => {
-    return request(app)
+  test("app.js", async () => {
+    const server = new App();
+    return request(server.app)
       .get("/")
       .then(() => {
         expect(router).toHaveBeenCalled();

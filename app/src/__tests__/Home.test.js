@@ -1,14 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { StaticRouter } from "react-router-dom";
+import Home from "../Pages/Home";
 
-import Header from "./../Components/Header";
-
-describe("Header", () => {
-  test("should render Header component ", () => {
+describe("Home", () => {
+  test("should render Home component ", () => {
     const component = shallow(
       <StaticRouter>
-        <Header />
+        <Home />
       </StaticRouter>
     );
     expect(component).toMatchSnapshot();

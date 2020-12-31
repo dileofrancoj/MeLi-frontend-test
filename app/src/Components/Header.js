@@ -10,7 +10,7 @@ const heightCol = {
 const Header = ({ handleSearch }) => {
   const history = useHistory();
   const location = useLocation();
-  const [_, product] = location.search.split("=");
+  const [_, product] = location ? location.search.split("=") : null;
   const search = (e) => {
     const [{ value }] = e.target;
     e.preventDefault();

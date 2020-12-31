@@ -81,13 +81,14 @@ const Products = ({ searchItem }) => {
                       </h4>
 
                       <Link
+                        className="mt-32"
                         to={`/items/${id}`}
                         style={{
                           color: "black",
                           textDecoration: "inherit",
                         }}
                       >
-                        <p className="pointer f-18 mt-32">{title}</p>
+                        <p className="pointer f-18 ">{title}</p>
                       </Link>
                     </Col>
                   </Row>

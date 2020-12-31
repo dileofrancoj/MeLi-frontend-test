@@ -65,7 +65,7 @@ const Product = () => {
           <Row className="mt-64 pl-32">
             <Col className="pl-32" md={8}>
               <h4 className="f-28 text-left ">Descripción del producto</h4>
-              <p className="mt-32 mb-32 ">{product.description}</p>
+              <p className="mt-32 mb-32 pb-32">{product.description}</p>
             </Col>
           </Row>
         </section>

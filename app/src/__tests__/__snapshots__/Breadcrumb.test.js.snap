@@ -8,7 +8,9 @@ exports[`Breadcrumb should render Breadcrumb component  1`] = `
   <[object Object]
     md={12}
   >
-    <span />
+    <span
+      className="f-14"
+    />
   </[object Object]>
 </[object Object]>
 `;

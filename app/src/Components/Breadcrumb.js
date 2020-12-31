@@ -17,7 +17,9 @@ const Breadcrumb = ({ categories }) => {
     <Row className="mt-16 mb-16">
       <Col md={12}>
         {/* Se deja el Link por si se amplia a busqueda de categorias */}
-        <span>{categories ? iterateCategories(categories) : null}</span>
+        <span className="f-14">
+          {categories ? iterateCategories(categories) : null}
+        </span>
       </Col>
     </Row>
   );

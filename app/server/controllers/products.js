@@ -1,6 +1,6 @@
 /* Import models */
 import { Products } from "../models/products";
-import { single as singleCat } from "./../models/categories";
+import { Categories } from "./../models/categories";
 
 /* Modelo de Author */
 import { Author } from "./../models/author";
@@ -44,7 +44,8 @@ class Search {
   // private
   async productCategory(category_id) {
     try {
-      const { path_from_root } = await singleCat(category_id);
+      const categories = new Categories();
+      const { path_from_root } = await categories.single(category_id);
       return filterToCategories(path_from_root);
     } catch (e) {
       throw e;

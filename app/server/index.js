@@ -1,6 +1,5 @@
-import app from "./app";
+import App from "./app";
 import { PORT } from "./utils/constants";
-const port = PORT || 8080;
-
-app.listen(port);
-console.log(`Corriendo en http://localhost:${port} 🔥`);
+const server = new App();
+server.app.listen(PORT || 8080);
+console.log(`Corriendo en http://localhost:${PORT || 8080} 🔥`);

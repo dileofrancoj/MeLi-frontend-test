@@ -2,7 +2,7 @@ import { renderToString } from "react-dom/server";
 import React from "react";
 import { matchPath, StaticRouter } from "react-router-dom";
 
-import routes from "./routes";
+import { routes } from "./routes";
 import renderFullPage from "./renderFullPage";
 import App from "../components/App";
 
@@ -13,7 +13,7 @@ const router = (req, res) => {
   );
   /* Si no matchea con ningun route desde el sv */
   if (!match) {
-    res.redirect("/products");
+    res.redirect("/");
   }
   const html = renderToString(
     <StaticRouter location={req.url}>

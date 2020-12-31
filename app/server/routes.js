@@ -1,4 +1,4 @@
-const routes = [
+export const routes = [
   {
     path: "/",
   },
@@ -9,5 +9,3 @@ const routes = [
     path: "/items/:id",
   },
 ];
-
-export default routes;

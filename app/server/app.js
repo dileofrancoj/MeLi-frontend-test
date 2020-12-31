@@ -3,12 +3,17 @@ import express from "express";
 
 import router from "./router";
 
-const app = express();
+class App {
+  constructor() {
+    this.app = express();
+    this.assets = express.static(path.join(__dirname, "../"));
+    this.app.use(this.assets);
+    this.app.get("*", router);
+  }
 
-const assets = express.static(path.join(__dirname, "../"));
+  app() {
+    return this.app;
+  }
+}
 
-app.use(assets);
-
-app.get("*", router);
-
-export default app;
+export default App;

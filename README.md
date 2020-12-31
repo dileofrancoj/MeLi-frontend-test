@@ -48,6 +48,12 @@ yarn test
 <p>React Router DOM </p>
 <p>Helmet ⛑</p>
 
+## Features 💪🏽
+
+<p>Cachear contenido de busqueda</p>
+<p>Agregar formi y yup para una validación mas limpia</p>
+<p>Migrar código a typescript</p>
+
 ## Agradecimientos
 
 <p>Gracias MercadoLibre por la oportunidad</p>

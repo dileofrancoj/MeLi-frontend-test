@@ -1,6 +1,5 @@
 import request from "supertest";
 
-import cors from "cors";
 import router from "../router";
 import app from "../app";
 

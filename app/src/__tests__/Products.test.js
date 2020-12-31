@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { StaticRouter } from "react-router-dom";
-import { search } from "../../server/controllers/products";
+import { Search } from "../../server/controllers/products";
 import Products from "./../Pages/Products";
 
 describe("Products", () => {
@@ -30,7 +30,8 @@ describe("Products", () => {
       </StaticRouter>
     );
     const product = "macbook";
-    const data = await search(product);
+    const search = new Search();
+    const data = await search.products(product);
     expect(typeof data).toBe("object");
   });
 });

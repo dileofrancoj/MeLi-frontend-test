@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { StaticRouter } from "react-router-dom";
-import { searchById } from "../../server/controllers/products";
+import { Search } from "../../server/controllers/products";
 
 import Product from "./../Pages/Product";
 
@@ -16,7 +16,8 @@ describe("Product", () => {
   });
   test("should get an Object by Id", async () => {
     const productId = "MLA867086863";
-    const data = await searchById(productId);
+    const search = new Search();
+    const data = await search.product(productId);
     expect(typeof data).toBe("object");
   });
 });

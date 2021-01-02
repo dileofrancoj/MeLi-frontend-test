@@ -30,8 +30,6 @@ export function productReducer(state, action) {
         product: null,
       };
     default:
-      return {
-        state,
-      };
+      return state;
   }
 }

@@ -10,14 +10,14 @@ export const initialState = {
   categories: [],
 };
 
-export function productsReducer(state, action) {
+export function productsReducer(state = initialState, action) {
   switch (action.type) {
     case FETCHING:
       return {
         loading: true,
         error: false,
-        product: [],
-        categorie: [],
+        products: [],
+        categories: [],
       };
     case FETCH_SUCCESS:
       return {
@@ -34,8 +34,6 @@ export function productsReducer(state, action) {
         categories: [],
       };
     default:
-      return {
-        state,
-      };
+      return state;
   }
 }

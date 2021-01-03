@@ -23,7 +23,7 @@ exports[`Products should render Products with a prop  1`] = `
   }
   staticContext={Object {}}
 >
-  <Products
+  <[object Object]
     searchItem="Macbook"
   />
 </Router>
@@ -52,6 +52,6 @@ exports[`Products should render basic Products component  1`] = `
   }
   staticContext={Object {}}
 >
-  <Products />
+  <[object Object] />
 </Router>
 `;

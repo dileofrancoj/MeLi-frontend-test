@@ -16,9 +16,8 @@ import { Link } from "react-router-dom";
 
 /* Personal components */
 import Breadcrumb from "../Components/Breadcrumb";
-
-/* Loading */
 import Message from "../Components/Message";
+import Head from "../Components/Head";
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
 import {
@@ -45,13 +44,12 @@ const Products = React.memo(({ searchItem }) => {
     fetchData();
   }, [searchItem]);
 
+  const title = searchItem ? searchItem : "Buscando productos";
   const RenderProducts = () => {
     return (
       <Fragment>
-        <Helmet>
-          <title>Productos</title>
-          <meta name="description" content="Encontra todo lo que buscas" />
-        </Helmet>
+        <Head title={title} description={"Encontrá todo lo que buscas"} />
+
         <Breadcrumb categories={categories} />
         <section>
           {products.map(

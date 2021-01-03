@@ -7,7 +7,7 @@ import Helmet from "react-helmet";
 /* Personal components */
 import Loading from "../Components/Loading";
 import Breadcrumb from "../Components/Breadcrumb";
-
+import Head from "../Components/Head";
 import { productReducer, initialState } from "../../reducers/product";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
 const Product = () => {
@@ -35,10 +35,7 @@ const Product = () => {
   const RenderProduct = () => {
     return (
       <Fragment>
-        <Helmet>
-          <title>{product.title}</title>
-          <meta name="description" content={product.description} />
-        </Helmet>
+        <Head title={product.title} description={product.description} />
         <Breadcrumb categories={product.categories} />
         <section className="vh-75 bg-white mb-32">
           <Row className="justify-content-center pt-32 bg-white m-0">

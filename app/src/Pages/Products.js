@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, Fragment } from "react";
 
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 /* Controller */
 import { Search } from "../../server/controllers/products";
 

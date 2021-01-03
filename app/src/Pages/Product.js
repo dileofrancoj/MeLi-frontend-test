@@ -3,7 +3,6 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Search } from "../../server/controllers/products";
 import { formatAsCurrency } from "../../server/utils/helpers";
 import { useParams } from "react-router-dom";
-import Helmet from "react-helmet";
 /* Personal components */
 import Loading from "../Components/Loading";
 import Breadcrumb from "../Components/Breadcrumb";

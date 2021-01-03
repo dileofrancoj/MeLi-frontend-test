@@ -19,7 +19,7 @@ import Breadcrumb from "../Components/Breadcrumb";
 
 /* Loading */
 import Loading from "../Components/Loading";
-
+import Message from "../Components/Message";
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
@@ -107,7 +107,13 @@ const Products = ({ searchItem }) => {
   return (
     <React.Fragment>
       {loading ? <Loading /> : null}
-      {!!products.length ? <RenderProducts /> : null}
+      {!!products.length ? (
+        <RenderProducts />
+      ) : (
+        <Message
+          message={`No se encontraron resultados para " ${searchItem} " por favor vuelta a intentarlo`}
+        />
+      )}
       {error ? <h3>Ocurrió un error, intente de nuevo</h3> : null}
     </React.Fragment>
   );

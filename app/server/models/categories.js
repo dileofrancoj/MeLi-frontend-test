@@ -1,11 +1,12 @@
-import fetch from "isomorphic-fetch";
-import { BASE_URL } from "../utils/constants";
+import { Request } from "./../services/Request";
 
-class Categories {
+class Categories extends Request {
+  constructor() {
+    super();
+  }
   async single(id) {
     try {
-      const data = await fetch(`${BASE_URL}/categories/${id}`);
-      return await data.json();
+      return await this.get(`categories/${id}`);
     } catch (e) {
       throw e;
     }

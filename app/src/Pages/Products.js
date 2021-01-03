@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, Fragment } from "react";
 
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
@@ -18,23 +18,25 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "../Components/Breadcrumb";
 
 /* Loading */
-import Loading from "../Components/Loading";
-
+import Message from "../Components/Message";
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
-const Products = ({ searchItem }) => {
-  const [{ products, error, loading, categories }, dispatch] = useReducer(
+const Products = React.memo(({ searchItem }) => {
+  const [{ products, error, categories }, dispatch] = useReducer(
     productsReducer,
     initialState
   );
   const fetchData = async () => {
     try {
+      console.log("search item en fetch", searchItem);
+      console.log("entra a fetch");
       const search = new Search();
       const { items, categories } = await search.products(searchItem);
       dispatch({ type: FETCH_SUCCESS, payload: { items, categories } });
+      console.log(items);
     } catch (e) {
-      dispatch({ type: FETCH_ERROR, payload: items });
+      dispatch({ type: FETCH_ERROR });
     }
   };
   useEffect(() => {
@@ -43,7 +45,7 @@ const Products = ({ searchItem }) => {
 
   const RenderProducts = () => {
     return (
-      <React.Fragment>
+      <Fragment>
         <Helmet>
           <title>Productos</title>
           <meta name="description" content="Encontra todo lo que buscas" />
@@ -100,18 +102,23 @@ const Products = ({ searchItem }) => {
             )
           )}
         </section>
-      </React.Fragment>
+      </Fragment>
     );
   };
 
   return (
-    <React.Fragment>
-      {loading ? <Loading /> : null}
-      {!!products.length ? <RenderProducts /> : null}
-      {error ? <h3>Ocurrió un error, intente de nuevo</h3> : null}
-    </React.Fragment>
+    <Fragment>
+      {!!products.length ? (
+        <RenderProducts />
+      ) : (
+        <Message message={"No se encontraron resultados"} />
+      )}
+      {error ? (
+        <Message message={"Ocurrió un error, intente de nuevo"} />
+      ) : null}
+    </Fragment>
   );
-};
+});
 
 Products.propTypes = {
   searchItem: PropTypes.string,

@@ -36,9 +36,7 @@
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/register": "^7.12.10",
-    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "express": "^4.15.3",
     "isomorphic-fetch": "^3.0.0",

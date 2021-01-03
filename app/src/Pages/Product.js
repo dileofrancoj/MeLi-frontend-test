@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, Fragment } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { Search } from "../../server/controllers/products";
 import { formatAsCurrency } from "../../server/utils/helpers";
@@ -34,7 +34,7 @@ const Product = () => {
 
   const RenderProduct = () => {
     return (
-      <React.Fragment>
+      <Fragment>
         <Helmet>
           <title>{product.title}</title>
           <meta name="description" content={product.description} />
@@ -69,15 +69,14 @@ const Product = () => {
             </Col>
           </Row>
         </section>
-      </React.Fragment>
+      </Fragment>
     );
   };
 
   return (
-    <React.Fragment>
-      {/* Se muestra si product = true && loading = false */}
+    <Fragment>
       {!!product && !loading ? <RenderProduct /> : <Loading />}
-    </React.Fragment>
+    </Fragment>
   );
 };
 

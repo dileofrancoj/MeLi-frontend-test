@@ -22,7 +22,6 @@ const Header = ({ handleSearch }) => {
 
   useEffect(() => {
     const [_, product] = location.search.split("=");
-    console.log("Actualiza página", product);
     product ? handleSearch(product) : null;
   }, []);
 
@@ -36,7 +35,7 @@ const Header = ({ handleSearch }) => {
           <img
             alt="logo"
             src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/Logo_ML.png"
-            onClick={() => history.goBack()}
+            onClick={() => history.push("/")}
           />
         </Col>
         <Col md={4} style={heightCol}>

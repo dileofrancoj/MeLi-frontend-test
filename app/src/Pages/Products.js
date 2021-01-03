@@ -23,18 +23,15 @@ import Message from "../Components/Message";
 import { productsReducer, initialState } from "../../reducers/products";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
 const Products = React.memo(({ searchItem }) => {
-  const [{ products, error, categories }, dispatch] = useReducer(
+  const [{ products, error, categories, loading }, dispatch] = useReducer(
     productsReducer,
     initialState
   );
   const fetchData = async () => {
     try {
-      console.log("search item en fetch", searchItem);
-      console.log("entra a fetch");
       const search = new Search();
       const { items, categories } = await search.products(searchItem);
       dispatch({ type: FETCH_SUCCESS, payload: { items, categories } });
-      console.log(items);
     } catch (e) {
       dispatch({ type: FETCH_ERROR });
     }
@@ -108,7 +105,7 @@ const Products = React.memo(({ searchItem }) => {
 
   return (
     <Fragment>
-      {!!products.length ? (
+      {!!products.length && !loading ? (
         <RenderProducts />
       ) : (
         <Message message={"No se encontraron resultados"} />

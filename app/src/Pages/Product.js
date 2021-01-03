@@ -40,7 +40,7 @@ const Product = () => {
           <meta name="description" content={product.description} />
         </Helmet>
         <Breadcrumb categories={product.categories} />
-        <section className="vh-75 bg-white ">
+        <section className="vh-75 bg-white mb-32">
           <Row className="justify-content-center pt-32 bg-white m-0">
             <Col md={8} className="item-header text-center">
               <picture className="mt-32">

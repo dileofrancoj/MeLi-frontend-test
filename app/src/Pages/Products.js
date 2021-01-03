@@ -21,7 +21,11 @@ import Breadcrumb from "../Components/Breadcrumb";
 import Message from "../Components/Message";
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
-import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
+import {
+  FETCH_SUCCESS,
+  FETCH_ERROR,
+  FETCHING,
+} from "../../reducers/actions/common";
 const Products = React.memo(({ searchItem }) => {
   const [{ products, error, categories, loading }, dispatch] = useReducer(
     productsReducer,
@@ -29,6 +33,7 @@ const Products = React.memo(({ searchItem }) => {
   );
   const fetchData = async () => {
     try {
+      dispatch({ type: FETCHING });
       const search = new Search();
       const { items, categories } = await search.products(searchItem);
       dispatch({ type: FETCH_SUCCESS, payload: { items, categories } });
@@ -105,11 +110,7 @@ const Products = React.memo(({ searchItem }) => {
 
   return (
     <Fragment>
-      {!!products.length && !loading ? (
-        <RenderProducts />
-      ) : (
-        <Message message={"No se encontraron resultados"} />
-      )}
+      {!!products.length && !loading ? <RenderProducts /> : null}
       {error ? (
         <Message message={"Ocurrió un error, intente de nuevo"} />
       ) : null}

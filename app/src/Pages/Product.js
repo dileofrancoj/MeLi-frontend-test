@@ -11,7 +11,6 @@ import { productReducer, initialState } from "../../reducers/product";
 import { FETCH_SUCCESS, FETCH_ERROR } from "../../reducers/actions/common";
 const Product = () => {
   const { id } = useParams();
-
   const [{ product, loading }, dispatch] = useReducer(
     productReducer,
     initialState

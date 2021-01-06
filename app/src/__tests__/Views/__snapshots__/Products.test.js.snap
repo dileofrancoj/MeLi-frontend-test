@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Products should render basic Products component  1`] = `
+exports[`<ProductsView /> test Should render a ProductsView 1`] = `
 <Router
   history={
     Object {
@@ -10,10 +10,11 @@ exports[`Products should render basic Products component  1`] = `
       "go": [Function],
       "goBack": [Function],
       "goForward": [Function],
+      "length": 1,
       "listen": [Function],
       "location": Object {
         "hash": "",
-        "pathname": "/",
+        "pathname": "blank",
         "search": "",
         "state": undefined,
       },
@@ -21,8 +22,21 @@ exports[`Products should render basic Products component  1`] = `
       "replace": [Function],
     }
   }
-  staticContext={Object {}}
 >
-  <[object Object] />
+  <ProductsView
+    address="capital"
+    condition="usado"
+    free_shipping={true}
+    id={1}
+    picture="test.jpg"
+    price={
+      Object {
+        "amount": 2000,
+        "currency": "ARS",
+        "decimals": 2,
+      }
+    }
+    title="test"
+  />
 </Router>
 `;

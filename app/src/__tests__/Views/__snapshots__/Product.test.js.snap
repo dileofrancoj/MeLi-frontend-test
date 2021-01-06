@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductView /> test Should render a ProductView 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ProductsView
+    product={
+      Object {
+        "categories": Array [
+          "producto",
+          "prueba",
+        ],
+        "condition": "new",
+        "description": "descripcion de prueba",
+        "free_shipping": true,
+        "id": 1,
+        "picture": "picture.png",
+        "price": Object {
+          "amount": 2000,
+          "currency": "ARS",
+          "decimals": 2,
+        },
+        "sold_quantity": 300,
+        "title": "titulo",
+      }
+    }
+  />
+</Router>
+`;

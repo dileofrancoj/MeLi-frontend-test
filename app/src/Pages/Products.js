@@ -17,6 +17,9 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "../Components/Breadcrumb";
 import Message from "../Components/Message";
 import Head from "../Components/Head";
+
+/* View */
+import ProductsView from "./../Views/Products";
 /* Reducer products  */
 import { productsReducer, initialState } from "../../reducers/products";
 import {
@@ -48,58 +51,11 @@ const Products = React.memo(({ searchItem }) => {
     return (
       <Fragment>
         <Head title={title} description={"Encontrá todo lo que buscas"} />
-
         <Breadcrumb categories={categories} />
         <section>
-          {products.map(
-            ({ id, title, price, free_shipping, address, picture }) => (
-              <Row
-                key={id}
-                className="justify-content-center bg-white pb-16 pt-16 pl-32 first-row"
-              >
-                <Col md={9}>
-                  <Row>
-                    <Col md={3} className="thumbnail">
-                      <Link to={`/items/${id}`}>
-                        <picture>
-                          <img
-                            className="pointer rounded thumbnail"
-                            src={picture}
-                            alt={title}
-                          />
-                        </picture>
-                      </Link>
-                    </Col>
-                    <Col md={9}>
-                      <h4 className="f-24">
-                        $ {formatAsCurrency(price.amount)}{" "}
-                        {free_shipping ? (
-                          <img
-                            src="https://images-prod-meli.s3-sa-east-1.amazonaws.com/ic_shipping.png"
-                            alt="free shipping"
-                          />
-                        ) : null}
-                      </h4>
-
-                      <Link
-                        className="mt-32"
-                        to={`/items/${id}`}
-                        style={{
-                          color: "black",
-                          textDecoration: "inherit",
-                        }}
-                      >
-                        <p className="pointer f-18 ">{title}</p>
-                      </Link>
-                    </Col>
-                  </Row>
-                </Col>
-                <Col md={3} className="pt-16 pl-16">
-                  <p className="f-12"> {address}</p>
-                </Col>
-              </Row>
-            )
-          )}
+          {products.map((props) => (
+            <ProductsView key={props.id} {...props} />
+          ))}
         </section>
       </Fragment>
     );

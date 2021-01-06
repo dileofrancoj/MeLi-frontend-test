@@ -14,6 +14,7 @@ describe("Products", () => {
     expect(component).toMatchSnapshot();
   });
 
+  /*
   test("should render Products with a prop ", () => {
     const component = shallow(
       <StaticRouter>
@@ -34,4 +35,5 @@ describe("Products", () => {
     const data = await search.products(product);
     expect(typeof data).toBe("object");
   });
+  */
 });
